@@ -2,23 +2,43 @@ import fs from 'fs';
 import Koa from 'koa';
 import path from 'path';
 import cors from 'kcors';
-// import http2 from 'http2';
+import React from 'react';
 import colors from 'colors';
 import ip from 'my-local-ip';
 import serve from 'koa-static';
 import Router from 'koa-router';
-// import routes from '../shared/routes';
+import App from '../browser/app';
+import { StaticRouter } from 'react-router-dom';
+import { renderToString } from 'react-dom/server';
 
 const port = process.env.PORT || 4000;
 const app = new Koa();
 const router = new Router();
-const filepath = path.resolve('build', 'public', 'index.html');
+const filepath = path.resolve('build', 'index.html');
 const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());
 app.use(serve('build'));
 
-router.get('*', (ctx) => { ctx.body = template; });
+router.get('*', (ctx) => {
+  const markup = renderToString(
+    <StaticRouter location={ctx.req.url} context={{}}>
+      <App />
+    </StaticRouter>
+  );
+
+  const result = template.replace(
+    `<div id="root"></div>`,
+    `
+    <script>
+      window.__DATA_LOADED__ = true;
+    </script>
+    <div id="root">${markup}</div>
+    `
+  );
+
+  ctx.body = result;
+});
 
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(port);

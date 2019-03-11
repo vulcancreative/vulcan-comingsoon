@@ -32,11 +32,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="app">
         <Route path="/" component={Home} exact={true} />
         <Route path="/careers" component={Careers} exact={true} />
         <Route path="/contact" component={Contact} exact={true} />
-      </React.Fragment>
+      </div>
     );
   }
 }

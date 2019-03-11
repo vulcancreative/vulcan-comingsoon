@@ -216,8 +216,9 @@ const browserConfig = {
     }),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '..', 'src', 'public'),
-        to: path.resolve(__dirname, '..', 'build', 'public'),
+        from: path.resolve(__dirname, '..', 'src', 'public', '**/*'),
+        to: path.resolve(__dirname, '..', 'build'),
+        flatten: true,
       },
     ]),
     ...commonPlugins,

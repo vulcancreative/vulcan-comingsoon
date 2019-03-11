@@ -40,7 +40,6 @@ class Home extends React.Component {
 
   render() {
     const { viewportWidth } = this.state;
-    console.log(`viewportWidth : ${viewportWidth}px`);
     const showSmall = viewportWidth < 1000;
 
     const homeworksLink = "https://homeworksenergy.com/";
