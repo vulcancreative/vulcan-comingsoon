@@ -1,1 +1,149 @@
 @import './include/colors.scss';
+@import './include/mixins.scss';
+
+$desktop-bottom: 1000px;
+$mobile-top: 999px;
+
+.contact {
+  .touching {
+    width: 100%;
+
+    @media (min-width: $desktop-bottom) {
+      padding: 68px 110px 132px 110px;
+    }
+
+    @media (max-width: $mobile-top) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 68px 0 132px 0;
+    }
+  }
+
+  .title-container {
+    .title {
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.11;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .hr {
+    background: #979797;
+    width: 67px;
+    height: 1px;
+    opacity: 0.46;
+    margin: 45px 0 38px 0;
+  }
+
+  form {
+    @media (min-width: $desktop-bottom) {
+      width: 80%;
+    }
+
+    @media (min-width: 1050px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
+      display: flex;
+      max-width: 600px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.11;
+      padding: 13px 20px;
+      border: transparentize($mexican-tar, 0.5) 1px solid;
+      outline: none;
+
+      @include placeholder(transparentize($mexican-tar, 0.4));
+
+      &:invalid {
+        font-weight: 400;
+      }
+
+      &:valid {
+        color: $waffle;
+        font-weight: 600;
+        border: $waffle 1px solid;
+      }
+
+      &:focus {
+        color: $waffle;
+        font-weight: 600;
+        outline: $waffle 3px solid;
+      }
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"] {
+      display: inline-block;
+
+      @media (min-width: $desktop-bottom) {
+        margin: 7px 30px 7px 0;
+      }
+
+      @media (max-width: $mobile-top) {
+        margin: 7px 0;
+      }
+
+      @media (min-width: 1050px) {
+        flex-basis: 45%;
+      }
+
+      @media (max-width: 1049px) {
+        width: 100%;
+      }
+    }
+
+    textarea {
+      width: calc(90% + 30px);
+      min-height: 183px;
+      margin-top: 7px;
+      resize: vertical;
+
+      @media (max-width: 1049px) {
+        width: 100%;
+      }
+    }
+
+    input[type="submit"] {
+      color: $mexican-tar;
+      background: $waffle;
+      font-size: 20px !important;
+      line-height: 30px;
+      letter-spacing: 0.11;
+      min-width: 250px;
+      font-size: 16px;
+      padding: 13px 20px;
+      margin-top: 14px;
+      display: block;
+      cursor: pointer;
+      border: none;
+
+      &:disabled {
+        color: transparentize($mexican-tar, 0.5);
+        background: transparentize($mexican-tar, 0.75);
+        cursor: default;
+      }
+
+      @media (max-width: $mobile-top) {
+        align-self: flex-start;
+      }
+    }
+  }
+}

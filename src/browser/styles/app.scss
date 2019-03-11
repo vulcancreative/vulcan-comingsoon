@@ -40,8 +40,12 @@ div, p, span, a {
   box-sizing: border-box;
 }
 
-p, p span {
+p, p span, input[type="submit"] {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.11;
+}
+
+.grecaptcha-badge {
+  opacity: 0 !important;
 }

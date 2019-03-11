@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './home';
 import Careers from './careers';
 import Contact from './contact';
+import Position from './position';
 import { withRouter, Route } from 'react-router-dom';
 import './styles/app.scss';
 
@@ -19,12 +20,11 @@ class App extends React.Component {
     const els = document.querySelectorAll('h2, p');
 
     const insertNbsp = (el) => {
-      const noWidowAtt = el.getAttribute('data-nowidow');
-      const noWidow = noWidowAtt && noWidowAtt === 'true';
-      if (noWidow) return;
+      if (el.classList.contains('widow-fix')) return;
 
       const html = el.innerHTML;
-      el.innerHTML = html.replace(/ ([^ ]*)$/,'&nbsp;$1');
+      el.innerHTML = html.replace(/ ([^ ]*)$/, '&nbsp;$1');
+      el.classList.add('widow-fix');
     };
 
     els.forEach((el) => insertNbsp(el));
@@ -35,6 +35,7 @@ class App extends React.Component {
       <div className="app">
         <Route path="/" component={Home} exact={true} />
         <Route path="/careers" component={Careers} exact={true} />
+        <Route path="/careers/:slug" component={Position} exact={true} />
         <Route path="/contact" component={Contact} exact={true} />
       </div>
     );

@@ -3,8 +3,12 @@
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
-.careers {
-  .positions {
+.position {
+  .intro h1 {
+    margin-bottom: 20px;
+  }
+
+  .details {
     width: 100%;
 
     @media (min-width: $desktop-bottom) {
@@ -43,7 +47,8 @@ $mobile-top: 999px;
     margin: 45px 0 38px 0;
   }
 
-  .openings {
+  p {
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,36 +64,6 @@ $mobile-top: 999px;
       max-width: 600px;
       flex-direction: column;
       align-items: flex-start;
-    }
-
-    .opening {
-      @media (min-width: $desktop-bottom) {
-        margin: 7px 4% 7px 0;
-        flex-basis: 45%;
-      }
-
-      @media (max-width: 1249px) {
-        margin: 7px 0;
-      }
-
-      a, span {
-        display: inline-block;
-        user-select: none;
-      }
-
-      a {
-        color: $prolapse;
-        font-weight: 600;
-        margin-right: 5px;
-        text-decoration: none;
-      }
-
-
-      @media (max-width: $mobile-top) {
-        .area {
-          display: none;
-        }
-      }
     }
   }
 }

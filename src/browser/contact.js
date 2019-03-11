@@ -25,6 +25,51 @@ class Contact extends React.Component {
             </span>
           </p>
         </Intro>
+        <div className="touching">
+          <div className="title-container">
+            <div className="title">
+              Contact Us
+            </div>
+            <div className="hr" />
+          </div>
+          <form action="">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              required
+            />
+
+            <input
+              type="text"
+              name="company"
+              placeholder="Company Name"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+
+            <textarea
+              name="message"
+              placeholder="So, what’s crackin?"
+              required
+            />
+
+            <input type="submit" value="Submit" disabled />
+          </form>
+        </div>
       </div>
     );
   }

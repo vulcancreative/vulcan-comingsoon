@@ -1,9 +1,38 @@
 import React from 'react';
 import Intro from './common/intro';
+import { Link } from 'react-router-dom';
+import { positions } from './data/positions';
 import './styles/careers.scss';
 
 class Careers extends React.Component {
   render() {
+    const openings = positions.map((p) => {
+      const loc = p.location;
+      const locString = typeof loc === 'string' || loc instanceof String;
+
+      const link = `/careers/${p.slug}`;
+
+      return (
+        <div className="opening" key={link}>
+          <Link to={link}>
+            {p.title}
+          </Link>
+          {
+            locString &&
+            <span className="location">
+              – {loc}
+            </span>
+          }
+          {
+            !locString &&
+            <span className="location">
+              – {loc.city}<span className="area">, {loc.area}</span>
+            </span>
+          }
+        </div>
+      );
+    });
+
     return (
       <div className="careers">
         <Intro className="magenta">
@@ -24,6 +53,17 @@ class Careers extends React.Component {
             you along for the ride!
           </p>
         </Intro>
+        <div className="positions">
+          <div className="title-container">
+            <div className="title">
+              Open Positions
+            </div>
+            <div className="hr" />
+          </div>
+          <div className="openings">
+            {openings}
+          </div>
+        </div>
       </div>
     );
   }

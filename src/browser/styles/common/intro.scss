@@ -7,6 +7,10 @@ $mobile-top: 999px;
   width: 100vw;
   padding: 51px 0 105px 0;
 
+  @media (min-width: $desktop-bottom) {
+    min-height: 576px;
+  }
+
   @media (max-width: $mobile-top) {
     display: flex;
     flex-direction: column;
@@ -67,6 +71,7 @@ $mobile-top: 999px;
     }
 
     h1 {
+      max-width: 90%;
       margin-bottom: 5px;
 
       @media (min-width: $desktop-bottom) {

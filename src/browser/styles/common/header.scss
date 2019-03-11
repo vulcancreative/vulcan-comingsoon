@@ -30,6 +30,7 @@ $mobile-top: 999px;
       line-height: 30px;
       letter-spacing: 0.11;
       text-decoration: none;
+      user-select: none;
 
       & + a {
         margin-left: 24px;

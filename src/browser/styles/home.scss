@@ -21,10 +21,6 @@ $info-reduce: 1280px;
     position: relative;
     overflow: hidden;
 
-    @media (min-width: $desktop-bottom) {
-      // height: 389px;
-    }
-
     @media (max-width: $mobile-top) {
       padding: 40px 0;
       align-items: center;
@@ -99,6 +95,7 @@ $info-reduce: 1280px;
       letter-spacing: 0;
       display: inline-block;
       position: relative;
+      user-select: none;
       opacity: 0.75;
 
       &:after {
