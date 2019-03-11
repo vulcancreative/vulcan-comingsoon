@@ -6,6 +6,11 @@ import Position from './position';
 import { withRouter, Route } from 'react-router-dom';
 import './styles/app.scss';
 
+const ScrollToTop = () => {
+  if (process.env.BROWSER) window.scrollTo(0, 0);
+  return null;
+};
+
 class App extends React.Component {
   componentDidMount() {
     this.fixWidows();
@@ -13,6 +18,10 @@ class App extends React.Component {
 
   componentDidUpdate() {
     this.fixWidows();
+  }
+
+  scrollToTop() {
+    if (process.env.BROWSER) window.scrollTo(0, 0);
   }
 
   // globally fixes typographic widows, inspired by https://bit.ly/2VR8fQ7
@@ -33,6 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <Route component={ScrollToTop} />
         <Route path="/" component={Home} exact={true} />
         <Route path="/careers" component={Careers} exact={true} />
         <Route path="/careers/:slug" component={Position} exact={true} />
