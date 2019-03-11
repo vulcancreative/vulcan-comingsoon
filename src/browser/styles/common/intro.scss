@@ -1,0 +1,121 @@
+@import '../include/colors.scss';
+
+$desktop-bottom: 1000px;
+$mobile-top: 999px;
+
+.intro {
+  width: 100vw;
+  padding: 51px 0 105px 0;
+
+  @media (max-width: $mobile-top) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.yellow {
+    background: $sclera;
+
+    h1 {
+      @media (min-width: $desktop-bottom) {
+        padding-left: 95px;
+      }
+
+      @media (max-width: $mobile-top) {
+        margin-left: -10px;
+      }
+    }
+  }
+
+  &.magenta {
+    background: $prolapse;
+
+    h1 {
+      @media (min-width: $desktop-bottom) {
+        padding-left: 107px;
+      }
+
+      @media (max-width: $mobile-top) {
+        margin-left: -2px;
+      }
+    }
+  }
+
+  &.cyan {
+    background: $waffle;
+
+    h1 {
+      @media (min-width: $desktop-bottom) {
+        padding-left: 107px;
+      }
+
+      @media (max-width: $mobile-top) {
+        margin-left: -2px;
+      }
+    }
+  }
+
+  .content {
+    @media (min-width: $desktop-bottom) {
+      margin-top: 91px;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
+      max-width: 600px;
+      margin-top: 67px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+
+      @media (min-width: $desktop-bottom) {
+        font: {
+          family: 'Martel', sans-serif;
+          size: 89px;
+        }
+        line-height: 89px;
+        letter-spacing: 0.03;
+      }
+
+      @media (max-width: $mobile-top) {
+        width: 100%;
+
+        font: {
+          family: 'Martel', sans-serif;
+          size: 55px;
+        }
+        line-height: 55px;
+        letter-spacing: 0.02;
+        text-align: left;
+      }
+    }
+
+    p {
+      opacity: 0.6;
+
+      @media (min-width: $desktop-bottom) {
+        width: 67vw;
+        padding-left: 110px;
+      }
+
+      @media (max-width: $mobile-top) {
+        width: 100%;
+      }
+
+      & + p {
+        margin-top: 30px;
+      }
+
+      span {
+        @media (min-width: 1500px) {
+          display: block;
+        }
+
+        @media (max-width: 1499px) {
+          display: inline;
+        }
+      }
+    }
+  }
+}

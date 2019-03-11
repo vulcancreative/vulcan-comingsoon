@@ -1,0 +1,207 @@
+@import './include/colors.scss';
+
+$desktop-bottom: 1000px;
+$mobile-top: 999px;
+$info-reduce: 1280px;
+
+.home {
+  .work {
+    width: 100vw;
+
+    @media (min-width: $desktop-bottom) {
+      padding: 51px;
+    }
+  }
+
+  .project {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: $desktop-bottom) {
+      // height: 389px;
+    }
+
+    @media (max-width: $mobile-top) {
+      padding: 40px 0;
+      align-items: center;
+    }
+
+    &.homeworks {
+      background: $homeworks;
+    }
+
+    &.mywarrant {
+      background: $mywarrant;
+
+      @media (max-width: $mobile-top) {
+        padding: 0 0 40px 0;
+      }
+    }
+
+    &.tomferry {
+      background: $tomferry;
+    }
+
+    &.wardssheds {
+      background: $wardssheds;
+    }
+  }
+
+  .info {
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: $desktop-bottom) {
+      width: 50vw;
+      padding: 61px 58px 68px 58px;
+    }
+
+    @media (min-width: $desktop-bottom) and (max-width: $info-reduce) {
+      width: 50%;
+      min-width: 50%;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
+      max-width: 600px;
+    }
+
+    h2 {
+      color: $white;
+      font: {
+        family: 'Martel', sans-serif;
+        size: 49px;
+      }
+      line-height: 54px;
+      letter-spacing: 0.02;
+
+      @media (max-width: $info-reduce - 1px) {
+        font-size: 35px;
+        line-height: 45px;
+      }
+    }
+
+    p {
+      color: $white;
+      margin-top: 10px;
+      opacity: 0.75;
+    }
+
+    a {
+      color: $white;
+      font-weight: 600;
+      margin-top: 30px;
+      text-decoration: none;
+      letter-spacing: 0;
+      display: inline-block;
+      position: relative;
+      opacity: 0.75;
+
+      &:after {
+        content: '›';
+        color: $white;
+        font-size: 26px;
+        display: inline-block;
+        position: absolute;
+        opacity: 0.65;
+        top: -7px;
+        right: -20px;
+      }
+    }
+  }
+
+  .image {
+    width: 50vw;
+    height: 389px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @media (max-width: $mobile-top) {
+      width: 400px;
+      min-width: 400px;
+      height: 300px;
+      min-height: 300px;
+      position: relative;
+      order: -1;
+    }
+  }
+
+  @media (min-width: $desktop-bottom) {
+    .homeworks {
+      .image {
+        right: 50px;
+
+        @media (max-width: $info-reduce - 1px) {
+          right: 0px;
+        }
+      }
+    }
+
+    .mywarrant {
+      align-items: flex-end;
+
+      .info {
+        margin-right: -50px;
+
+        @media (max-width: $info-reduce - 1px) {
+          margin-right: -10px;
+        }
+      }
+
+      .image {
+        top: 0;
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+
+  @media (max-width: $desktop-bottom) {
+    .homeworks {
+      .image {
+        width: 370px;
+        min-width: 370px;
+        margin-top: 5px;
+      }
+
+      .info {
+        margin-top: 25px;
+      }
+    }
+
+    .mywarrant {
+      .image {
+        width: 350px;
+        min-width: 350px;
+        margin-top: -10px;
+      }
+
+      .info {
+        margin-top: -20px;
+      }
+    }
+
+    .tomferry {
+      .info {
+        margin-top: 30px;
+      }
+    }
+
+    .wardssheds {
+      .image {
+        height: 250px;
+        min-height: 250px;
+        margin-top: -12px;
+      }
+
+      .info {
+        margin-top: 5px;
+      }
+    }
+  }
+}

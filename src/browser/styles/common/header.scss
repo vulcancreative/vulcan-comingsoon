@@ -1,0 +1,39 @@
+@import '../include/colors.scss';
+
+$desktop-bottom: 1000px;
+$mobile-top: 999px;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: $desktop-bottom) {
+    padding: 0 92px;
+  }
+
+  @media (max-width: $mobile-top) {
+    width: 80vw;
+  }
+
+  .logo {
+    @media (max-width: $mobile-top) {
+      width: 66px;
+    }
+  }
+
+  .nav {
+    a {
+      color: $mexican-tar;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.11;
+      text-decoration: none;
+
+      & + a {
+        margin-left: 24px;
+      }
+    }
+  }
+}
