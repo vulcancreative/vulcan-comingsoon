@@ -43,10 +43,10 @@ class App extends React.Component {
     return (
       <div className="app">
         <Route component={ScrollToTop} />
-        <Route path="/" component={Home} exact={true} />
-        <Route path="/careers" component={Careers} exact={true} />
-        <Route path="/careers/:slug" component={Position} exact={true} />
-        <Route path="/contact" component={Contact} exact={true} />
+        <Route path="/" component={Home} exact />
+        <Route path="/careers" component={Careers} />
+        <Route path="/careers/:slug" component={Position} />
+        <Route path="/contact" component={Contact} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ import { renderToString } from 'react-dom/server';
 const port = process.env.PORT || 4000;
 const app = new Koa();
 const router = new Router();
-const filepath = path.resolve('build', 'index.html');
+const filepath = path.resolve('build', 'templates', 'index.html');
 const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());

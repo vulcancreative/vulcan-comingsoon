@@ -218,6 +218,12 @@ const browserConfig = {
       {
         from: path.resolve(__dirname, '..', 'src', 'public', '**/*'),
         to: path.resolve(__dirname, '..', 'build'),
+        ignore: [ 'index.html' ],
+        flatten: true,
+      },
+      {
+        from: path.resolve(__dirname, '..', 'src', 'public', 'index.html'),
+        to: path.resolve(__dirname, '..', 'build', 'templates'),
         flatten: true,
       },
     ]),
