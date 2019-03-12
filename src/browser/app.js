@@ -26,7 +26,7 @@ class App extends React.Component {
 
   // globally fixes typographic widows, inspired by https://bit.ly/2VR8fQ7
   fixWidows() {
-    const els = document.querySelectorAll('h2, p');
+    const els = document.querySelectorAll('h2, h3, p');
 
     const insertNbsp = (el) => {
       if (el.classList.contains('widow-fix')) return;
@@ -44,9 +44,9 @@ class App extends React.Component {
       <div className="app">
         <Route component={ScrollToTop} />
         <Route path="/" component={Home} exact />
-        <Route path="/careers" component={Careers} />
-        <Route path="/careers/:slug" component={Position} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/careers" component={Careers} exact />
+        <Route path="/careers/:slug" component={Position} exact />
+        <Route path="/contact" component={Contact} exact />
       </div>
     );
   }

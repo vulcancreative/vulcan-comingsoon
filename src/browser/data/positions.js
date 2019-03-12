@@ -13,18 +13,21 @@ const positions = [
     slug: "generalist-copywriter-anywhere",
     location: "Anywhere",
     markdown: a,
+    type: "design",
   },
   {
     title: "Social Content Designer",
     slug: "social-content-designer-anywhere",
     location: "Anywhere",
     markdown: b,
+    type: "design",
   },
   {
     title: "UI Designer",
     slug: "ui-designer-anywhere",
     location: "Anywhere",
     markdown: c,
+    type: "design",
   },
   {
     title: "Senior Front-End Developer",
@@ -34,6 +37,7 @@ const positions = [
       area: "Thailand",
     },
     markdown: d,
+    type: "engineering",
   },
   {
     title: "Motion Designer",
@@ -43,24 +47,28 @@ const positions = [
       area: "Thailand",
     },
     markdown: e,
+    type: "design",
   },
   {
     title: "Administrative Assistant",
+    abbr: "Admin Assistant",
     slug: "administrative-assistant-portsmouth",
     location: {
       city: "Portsmouth",
       area: "NH",
     },
     markdown: f,
+    type: "business",
   },
   {
-    title: "Visual Designer",
-    slug: "visual-designer-portsmouth",
+    title: "Iconographer",
+    slug: "iconographer-portsmouth",
     location: {
       city: "Portsmouth",
       area: "NH",
     },
     markdown: g,
+    type: "design",
   },
   {
     title: "Account Manager",
@@ -70,6 +78,7 @@ const positions = [
       area: "NH",
     },
     markdown: h,
+    type: "business",
   },
 ];
 

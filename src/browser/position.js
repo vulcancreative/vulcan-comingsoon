@@ -1,6 +1,7 @@
 import React from 'react';
 import Intro from './common/intro';
 import Markdown from 'markdown-to-jsx';
+import { isString } from './util/collection';
 import { positions } from './data/positions';
 import { Link, withRouter } from 'react-router-dom';
 import './styles/position.scss';
@@ -11,9 +12,11 @@ class Position extends React.Component {
 
     this.state = {
       title: null,
+      abbr: null,
       slug: null,
       location: null,
       markdown: null,
+      type: null,
     };
   }
 
@@ -35,7 +38,7 @@ class Position extends React.Component {
   }
 
   render() {
-    const { title, markdown } = this.state;
+    const { abbr, type, title, markdown } = this.state;
     if (!title || !markdown) return null;
 
     const markdownOptions = {
@@ -49,17 +52,34 @@ class Position extends React.Component {
 
     const sections = markdown.split('\n\n');
 
-    const firstSection = sections[0];
-    const latterSections = sections.slice(1, sections.length);
+    const loc = sections[0];
+    const firstSection = sections[1];
+    const latterSections = sections.slice(2, sections.length);
 
-    console.log(latterSections);
+    const abbrValid = isString(abbr);
+
+    let linkLabel = "Link to Resume";
+    if (type === "design") {
+      linkLabel = "Link to Portfolio";
+    } else if (type === "engineering") {
+      linkLabel = "Link to GitHub or Portfolio";
+    }
 
     return (
       <div className="position">
         <Intro className="magenta">
-          <h1 className="title">
+          <h1 className={`title ${abbrValid ? 'full' : ''}`}>
             {title}
           </h1>
+          {
+            abbrValid &&
+            <h1 className="abbr">
+              {abbr}
+            </h1>
+          }
+          <Markdown options={markdownOptions}>
+            {loc}
+          </Markdown>
           <Markdown options={markdownOptions}>
             {firstSection}
           </Markdown>
@@ -74,6 +94,43 @@ class Position extends React.Component {
           <Markdown options={markdownOptions}>
             {latterSections.join('\n\n')}
           </Markdown>
+          <form action="">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              required
+            />
+
+            <input
+              type="url"
+              name="link"
+              placeholder={linkLabel}
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+
+            <textarea
+              name="message"
+              placeholder="Tell us about you. Why are you a good fit?"
+              required
+            />
+
+            <input type="submit" value="Apply" disabled />
+          </form>
         </div>
       </div>
     );

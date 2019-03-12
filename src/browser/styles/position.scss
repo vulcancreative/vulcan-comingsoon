@@ -1,11 +1,46 @@
 @import './include/colors.scss';
+@import './include/mixins.scss';
 
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
 .position {
-  .intro h1 {
-    margin-bottom: 20px;
+  .intro {
+    h1 {
+      margin-bottom: 10px;
+
+      &.full {
+        @media (max-width: $mobile-top) {
+          display: none;
+        }
+      }
+
+      &.abbr {
+        @media (min-width: $desktop-bottom) {
+          display: none;
+        }
+      }
+    }
+
+    h2 {
+      color: $white;
+      font: {
+        family: 'Martel', sans-serif;
+        size: 49px;
+      }
+      line-height: 54px;
+      letter-spacing: 0.02;
+      margin-bottom: 20px;
+
+      @media (min-width: $desktop-bottom) {
+        padding-left: 110px;
+      }
+
+      @media (max-width: $mobile-top) {
+        font-size: 35px;
+        line-height: 45px;
+      }
+    }
   }
 
   .details {
@@ -20,6 +55,10 @@ $mobile-top: 999px;
       flex-direction: column;
       align-items: center;
       padding: 68px 0 132px 0;
+    }
+
+    p {
+      color: transparentize($mexican-tar, 0.25);
     }
   }
 
@@ -37,6 +76,16 @@ $mobile-top: 999px;
       flex-direction: column;
       align-items: flex-start;
     }
+
+    & + div {
+      @media (max-width: $mobile-top) {
+        width: 85%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   }
 
   .hr {
@@ -47,6 +96,22 @@ $mobile-top: 999px;
     margin: 45px 0 38px 0;
   }
 
+  h3 {
+    margin: 80px 0 45px 0;
+    position: relative;
+
+    &:after {
+      content: '';
+      background: #979797;
+      width: 67px;
+      height: 1px;
+      opacity: 0.46;
+      position: absolute;
+      bottom : -15px;
+      left: 0;
+    }
+  }
+
   p {
     font-size: 20px;
     display: flex;
@@ -54,16 +119,160 @@ $mobile-top: 999px;
     justify-content: space-between;
     flex-wrap: wrap;
 
+    & + p {
+      margin-top: 40px;
+    }
+
     @media (min-width: 1250px) {
       width: 80%;
     }
+  }
 
-    @media (max-width: 1249px) {
-      width: 85%;
+  strong {
+    color: $mexican-tar !important;
+    font-weight: 600;
+  }
+
+  ol, ul {
+    margin-left: 30px;
+    list-style: none;
+
+    li {
+      color: transparentize($mexican-tar, 0.3);
+      width: 60%;
+      position: relative;
+
+      @media (max-width: $mobile-top) {
+        width: 100%;
+      }
+
+      &:before {
+        content: '•';
+        font: {
+          family: 'Source Sans Pro', sans-serif;
+          size: 17px;
+          weight: 400;
+        }
+        position: absolute;
+        margin-top: -1px;
+        left: -15px;
+      }
+
+      & + li {
+        margin-top: 10px;
+      }
+
+    }
+
+    & + p {
+      margin-top: 30px;
+    }
+  }
+
+  form {
+    margin-top: 60px;
+    
+    @media (min-width: $desktop-bottom) {
+      width: 80%;
+    }
+
+    @media (min-width: 1050px) {
       display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
       max-width: 600px;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"],
+    input[type="url"], textarea {
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.11;
+      padding: 13px 20px;
+      border: transparentize($mexican-tar, 0.5) 1px solid;
+      outline: none;
+
+      @include placeholder(transparentize($mexican-tar, 0.4));
+
+      &:invalid {
+        font-weight: 400;
+      }
+
+      &:valid {
+        color: $waffle;
+        font-weight: 600;
+        border: $waffle 1px solid;
+      }
+
+      &:focus {
+        color: $waffle;
+        font-weight: 600;
+        outline: $waffle 3px solid;
+      }
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"],
+    input[type="url"] {
+      display: inline-block;
+
+      @media (min-width: $desktop-bottom) {
+        margin: 7px 30px 7px 0;
+      }
+
+      @media (max-width: $mobile-top) {
+        margin: 7px 0;
+      }
+
+      @media (min-width: 1050px) {
+        flex-basis: 45%;
+      }
+
+      @media (max-width: 1049px) {
+        width: 100%;
+      }
+    }
+
+    textarea {
+      width: calc(90% + 30px);
+      min-height: 183px;
+      margin-top: 7px;
+      resize: vertical;
+
+      @media (max-width: 1049px) {
+        width: 100%;
+      }
+    }
+
+    input[type="submit"] {
+      color: $mexican-tar;
+      background: $prolapse;
+      font-size: 20px !important;
+      line-height: 30px;
+      letter-spacing: 0.11;
+      min-width: 250px;
+      font-size: 16px;
+      padding: 13px 20px;
+      margin-top: 14px;
+      display: block;
+      cursor: pointer;
+      border: none;
+
+      &:disabled {
+        color: transparentize($mexican-tar, 0.5);
+        background: transparentize($mexican-tar, 0.75);
+        cursor: default;
+      }
+
+      @media (max-width: $mobile-top) {
+        align-self: flex-start;
+      }
     }
   }
 }
