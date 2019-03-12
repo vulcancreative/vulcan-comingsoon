@@ -1,8 +1,14 @@
 import React from 'react';
+import { post } from './api';
 import Intro from './common/intro';
 import './styles/contact.scss';
 
 class Contact extends React.Component {
+  handleSubmit(e) {
+    e.preventDefault();
+    post('/contact', this.form).then((response) => console.log(response));
+  }
+
   render() {
     return (
       <div className="contact">
@@ -32,7 +38,10 @@ class Contact extends React.Component {
             </div>
             <div className="hr" />
           </div>
-          <form action="">
+          <form
+            ref={(el) => { this.form = el; }}
+            onSubmit={(e) => this.handleSubmit(e)}
+          >
             <input
               type="text"
               name="name"
@@ -67,7 +76,7 @@ class Contact extends React.Component {
               required
             />
 
-            <input type="submit" value="Submit" disabled />
+            <input type="submit" value="Submit" />
           </form>
         </div>
       </div>
