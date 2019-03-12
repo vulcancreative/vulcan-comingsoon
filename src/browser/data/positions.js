@@ -62,6 +62,7 @@ const positions = [
   },
   {
     title: "Iconographer",
+    abbr: "Icon Designer",
     slug: "iconographer-portsmouth",
     location: {
       city: "Portsmouth",
