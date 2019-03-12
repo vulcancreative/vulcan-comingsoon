@@ -6,21 +6,6 @@ import Position from './position';
 import { withRouter, Route } from 'react-router-dom';
 import './styles/app.scss';
 
-const FixWidows = () => {
-  const els = document.querySelectorAll('h2, h3, p');
-
-  const insertNbsp = (el) => {
-    if (el.classList.contains('widow-fix')) return;
-
-    const html = el.innerHTML;
-    el.innerHTML = html.replace(/ ([^ ]*)$/, '&nbsp;$1');
-    el.classList.add('widow-fix');
-  };
-
-  els.forEach((el) => insertNbsp(el));
-  return null;
-};
-
 const ScrollToTop = () => {
   if (process.env.BROWSER) window.scrollTo(0, 0);
   return null;
@@ -59,7 +44,6 @@ class App extends React.Component {
     return (
       <div className="app">
         <Route component={ScrollToTop} />
-        <Route component={FixWidows} />
         <Route path="/" component={Home} exact />
         <Route path="/careers" component={Careers} exact />
         <Route path="/careers/:slug" component={Position} exact />
