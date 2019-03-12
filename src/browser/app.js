@@ -14,6 +14,7 @@ const ScrollToTop = () => {
 class App extends React.Component {
   componentDidMount() {
     this.fixWidows();
+    this.props.history.listen(() => this.fixWidows());
   }
 
   componentDidUpdate() {
