@@ -56,3 +56,4 @@ follow the rules your linter has in-place, you'll get along swimmingly!
 * Catered lunch.
 
 Vulcan is an equal-opportunity employer, and we already love you.
+No recruiters, please.

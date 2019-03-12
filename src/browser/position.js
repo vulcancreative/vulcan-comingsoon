@@ -1,4 +1,5 @@
 import React from 'react';
+import { post } from './api';
 import Intro from './common/intro';
 import Markdown from 'markdown-to-jsx';
 import { isString } from './util/collection';
@@ -35,6 +36,12 @@ class Position extends React.Component {
 
     const position = positions.find((p) => p.slug === slug);
     this.setState({ ...position });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    post('/apply', this.form).then((response) => console.log(response));
   }
 
   render() {
@@ -94,7 +101,10 @@ class Position extends React.Component {
           <Markdown options={markdownOptions}>
             {latterSections.join('\n\n')}
           </Markdown>
-          <form action="">
+          <form
+            ref={(el) => { this.form = el; }}
+            onSubmit={(e) => this.handleSubmit(e)}
+          >
             <input
               type="text"
               name="name"
@@ -129,7 +139,7 @@ class Position extends React.Component {
               required
             />
 
-            <input type="submit" value="Apply" disabled />
+            <input type="submit" value="Apply" />
           </form>
         </div>
       </div>
