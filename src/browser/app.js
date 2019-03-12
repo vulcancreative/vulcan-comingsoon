@@ -18,6 +18,7 @@ const FixWidows = () => {
   };
 
   els.forEach((el) => insertNbsp(el));
+  return null;
 };
 
 const ScrollToTop = () => {
