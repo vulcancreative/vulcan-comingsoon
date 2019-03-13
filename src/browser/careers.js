@@ -25,13 +25,13 @@ class Careers extends React.Component {
           {
             locString &&
             <span className="location">
-              – {loc}
+              –&nbsp;{loc}
             </span>
           }
           {
             !locString &&
             <span className="location">
-              – {loc.city}<span className="area">, {loc.area}</span>
+              –&nbsp;{loc.city}<span className="area">, {loc.area}</span>
             </span>
           }
         </div>

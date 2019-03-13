@@ -50,8 +50,8 @@ class Home extends React.Component {
     const showSmall = viewportWidth < 1000;
 
     const homeworksLink = "https://homeworksenergy.com/";
-    const mywarrantLink = "https://dribbble.com/vulcan-creative/" +
-      "projects/720285-MyWarrant";
+    const mywarrantLink = "https://dribbble.com/shots/" +
+      "4851776-MyWarrant-Brandbooks";
     const tomferryLink = "https://tfod.tomferry.com/";
     const wardsshedsLink = "https://dribbble.com/shots/" +
       "4185275-Wards-Sheds-Builder";
