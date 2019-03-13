@@ -1,0 +1,66 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.1.0
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - add_ssh_keys
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run:
+          name: Install dependencies locally
+          command: |
+            npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Setup any required local binaries
+          command: |
+            sudo apt-get install autoconf libtool \
+            pkg-config nasm build-essential
+            npm rebuild mozjpeg
+
+      # - run:
+      # name: Build for testing
+      # command: npm run build
+
+      # - run: npm test
+
+      - run:
+          name: Deploy to production server
+          command: |
+            echo "$PROD_KNOWN" >> ~/.ssh/known_hosts
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && pm2 stop vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && touch package-lock.json"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && rm -rf package-lock.json"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && rm -rf build"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && git pull"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && npm install"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && $PROD_FLAGS npm run build"
+            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && pm2 start vulcan-frontend"

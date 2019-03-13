@@ -114,7 +114,7 @@ const browserOptimization = {
           'if_return': false,
           'join_vars': false,
           'reduce_vars': false,
-          'drop_console': true,
+          'drop_console': false,
           'pure_funcs': [
             'classCallCheck',
             '_classCallCheck',

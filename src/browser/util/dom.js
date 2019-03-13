@@ -14,4 +14,17 @@ const viewportSize = () => {
   return result;
 };
 
-export { viewportSize };
+// globally fixes typographic widows, inspired by https://bit.ly/2VR8fQ7
+const fixWidows = () => {
+  const els = document.querySelectorAll('h2, h3, p, span, li');
+
+  const insertNbsp = (el) => {
+    const html = el.innerHTML;
+    if (/(&nbsp;.*)$/.test(html)) return;
+    el.innerHTML = html.replace(/ ([^ ]*)$/, '&nbsp;$1');
+  };
+
+  els.forEach((el) => insertNbsp(el));
+};
+
+export { fixWidows, viewportSize };

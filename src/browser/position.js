@@ -2,6 +2,7 @@ import React from 'react';
 import { post } from './api';
 import Intro from './common/intro';
 import Markdown from 'markdown-to-jsx';
+import { fixWidows } from './util/dom';
 import { isString } from './util/collection';
 import { positions } from './data/positions';
 import { Link, withRouter } from 'react-router-dom';
@@ -22,10 +23,12 @@ class Position extends React.Component {
   }
 
   componentDidMount() {
+    fixWidows();
     this.findPosition();
   }
 
   componentDidUpdate(prevProps) {
+    fixWidows();
     if (prevProps.markdown !== this.props.markdown) {
       this.findPosition();
     }
@@ -40,7 +43,6 @@ class Position extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     post('/apply', this.form).then((response) => console.log(response));
   }
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import { post } from './api';
 import Intro from './common/intro';
+import { fixWidows } from './util/dom';
 import './styles/contact.scss';
 
 class Contact extends React.Component {
+  componentDidMount() {
+    fixWidows();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     post('/contact', this.form).then((response) => console.log(response));

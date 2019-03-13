@@ -1,6 +1,6 @@
 import React from 'react';
 import Intro from './common/intro';
-import { viewportSize } from './util/dom';
+import { fixWidows, viewportSize } from './util/dom';
 
 import homeworksUIDesktop from './images/homeworks-ui-desktop.jpg';
 import mywarrantBrandDesktop from './images/mywarrant-brand-desktop.jpg';
@@ -23,18 +23,25 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    fixWidows();
+
     if (process.env.BROWSER) {
       this.updateViewportWidth = () => {
         this.setState({ viewportWidth: viewportSize().x });
       };
 
-      window.addEventListener('resize', this.updateViewportWidth);
+      this.handleResize = () => {
+        this.updateViewportWidth;
+        fixWidows();
+      };
+
+      window.addEventListener('resize', this.handleResize);
     }
   }
 
   componentWillUnmount() {
     if (process.env.BROWSER) {
-      window.removeEventListener('resize', this.updateViewportWidth);
+      window.removeEventListener('resize', this.handleResize);
     }
   }
 

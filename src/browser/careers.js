@@ -1,10 +1,15 @@
 import React from 'react';
 import Intro from './common/intro';
+import { fixWidows } from './util/dom';
 import { Link } from 'react-router-dom';
 import { positions } from './data/positions';
 import './styles/careers.scss';
 
 class Careers extends React.Component {
+  componentDidMount() {
+    fixWidows();
+  }
+
   render() {
     const openings = positions.map((p) => {
       const loc = p.location;
