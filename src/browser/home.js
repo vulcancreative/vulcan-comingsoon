@@ -31,7 +31,7 @@ class Home extends React.Component {
       };
 
       this.handleResize = () => {
-        this.updateViewportWidth;
+        this.updateViewportWidth();
         fixWidows();
       };
 

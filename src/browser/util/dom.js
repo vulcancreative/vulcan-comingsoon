@@ -20,7 +20,7 @@ const fixWidows = () => {
 
   const insertNbsp = (el) => {
     const html = el.innerHTML;
-    if (/(&nbsp;.*)$/.test(html)) return;
+    if (/(&nbsp;\S*)$/.test(html)) return;
     el.innerHTML = html.replace(/ ([^ ]*)$/, '&nbsp;$1');
   };
 
