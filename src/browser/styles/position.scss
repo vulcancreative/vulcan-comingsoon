@@ -206,15 +206,15 @@ $mobile-top: 999px;
       }
 
       &:valid {
-        color: $waffle;
+        color: $prolapse;
         font-weight: 600;
-        border: $waffle 1px solid;
+        border: $prolapse 1px solid;
       }
 
       &:focus {
-        color: $waffle;
+        color: $prolapse;
         font-weight: 600;
-        outline: $waffle 3px solid;
+        outline: $prolapse 3px solid;
       }
     }
 

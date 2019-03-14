@@ -3,6 +3,21 @@
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
+@keyframes navSelect {
+  from {
+    width: 0%;
+    opacity: 0;
+    left: 50%;
+  }
+  to {
+    width: 80%;
+    opacity: 0.5;
+    left: 10%;
+  }
+}
+
+
+
 .header {
   display: flex;
   flex-direction: row;
@@ -30,10 +45,20 @@ $mobile-top: 999px;
       line-height: 30px;
       letter-spacing: 0.11;
       text-decoration: none;
+      position: relative;
       user-select: none;
 
       & + a {
         margin-left: 24px;
+      }
+
+      &.active:after {
+        content: '';
+        background: $mexican-tar;
+        animation: navSelect 150ms forwards;
+        height: 1px;
+        position: absolute;
+        bottom: -5px;
       }
     }
   }
