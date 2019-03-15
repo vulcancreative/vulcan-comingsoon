@@ -230,7 +230,7 @@ const browserConfig = {
       template: path.resolve('src', 'public', 'index.html'),
     }),
     new Critters({
-      preload: 'js',
+      preload: 'swap',
       logLevel: 'silent',
       pruneSource: false,
       preloadFonts: true,
