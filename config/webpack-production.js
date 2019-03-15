@@ -2,7 +2,9 @@ const path = require('path');
 const process = require('process');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const Critters = require('critters-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -228,6 +230,15 @@ const browserConfig = {
       },
     ]),
     ...commonPlugins,
+    new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, '..', 'build', 'templates', 'index.html'),
+    }),
+    new Critters({
+      preload: 'swap',
+      pruneSource: false,
+      logLevel: "silent",
+      preloadFonts: true,
+    }),
   ].filter(Boolean),
 };
 
