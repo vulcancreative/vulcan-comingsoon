@@ -233,7 +233,7 @@ const browserConfig = {
       preload: 'swap',
       logLevel: 'silent',
       pruneSource: false,
-      preloadFonts: true,
+      preloadFonts: false,
     }),
   ].filter(Boolean),
 };
