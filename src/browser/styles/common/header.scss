@@ -1,5 +1,6 @@
 @import '../include/colors.scss';
 
+$max-width: 1618px;
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
@@ -22,7 +23,12 @@ $mobile-top: 999px;
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: $desktop-bottom) {
+  @media (min-width: $max-width) {
+    width: $max-width;
+    padding: 0 55px;
+  }
+
+  @media (min-width: $desktop-bottom) and (max-width: $max-width - 1px) {
     padding: 0 92px;
   }
 

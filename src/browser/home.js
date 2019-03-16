@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from './common/intro';
+import MetaTags from 'react-meta-tags';
 import { fixWidows, viewportSize } from './util/dom';
 
 import homeworksUIDesktop from './images/homeworks-ui-desktop.jpg';
@@ -19,6 +20,12 @@ class Home extends React.Component {
 
     this.state = {
       viewportWidth: viewportSize().x,
+      meta: {
+        title: "Vulcan, the full-service creative agency",
+        description: "Vulcan is a quirky creative agency, " +
+        "specializing in building products, sharpening brands, and " +
+        "delivering memorable experiences.",
+      },
     };
   }
 
@@ -46,7 +53,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { viewportWidth } = this.state;
+    const { meta, viewportWidth } = this.state;
     const showSmall = viewportWidth < 1000;
 
     const homeworksLink = "https://homeworksenergy.com/";
@@ -92,6 +99,10 @@ class Home extends React.Component {
 
     return (
       <div className="home">
+        <MetaTags>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </MetaTags>
         <Intro className="yellow">
           <h1>
             Vulcan

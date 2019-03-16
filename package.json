@@ -44,6 +44,7 @@
     "react": "^16.3.0",
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.2.0",
+    "react-meta-tags": "^0.7.4",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-svg": "^7.2.9",

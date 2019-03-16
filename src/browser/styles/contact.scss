@@ -1,12 +1,18 @@
 @import './include/colors.scss';
 @import './include/mixins.scss';
 
+$max-width: 1618px;
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
 .contact {
   .touching {
     width: 100%;
+
+    @media (min-width: $max-width) {
+      width: $max-width;
+      margin: 0 auto;
+    }
 
     @media (min-width: $desktop-bottom) {
       padding: 68px 110px 132px 110px;
@@ -27,6 +33,11 @@ $mobile-top: 999px;
       letter-spacing: 0.11;
     }
 
+    @media (min-width: $max-width) {
+      width: 100%;
+      margin-left: -35px;
+    }
+
     @media (max-width: $mobile-top) {
       width: 85%;
       max-width: 600px;
@@ -45,6 +56,10 @@ $mobile-top: 999px;
   }
 
   form {
+    @media (min-width: $max-width) {
+      margin-left: -35px;
+    }
+
     @media (min-width: $desktop-bottom) {
       width: 80%;
     }

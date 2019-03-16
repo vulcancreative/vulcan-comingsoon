@@ -1,6 +1,7 @@
 import React from 'react';
 import { post } from './api';
 import Intro from './common/intro';
+import MetaTags from 'react-meta-tags';
 import Markdown from 'markdown-to-jsx';
 import { fixWidows } from './util/dom';
 import { isString } from './util/collection';
@@ -41,6 +42,34 @@ class Position extends React.Component {
     this.setState({ ...position });
   }
 
+  buildMeta(title, firstSection) {
+    const descParts = firstSection.split(' ');
+
+    let chars = 0;
+    const max = 120;
+    const chosen = [];
+    for (let i = 0; i != descParts.length; i++) {
+      const part = descParts[i];
+      const len = part.length;
+
+      chars += len;
+
+      if (chars >= max) {
+        chosen.push(part.replace(/\.,!;:/, ''));
+        break;
+      } else {
+        chosen.push(part);
+      }
+    }
+
+    const description = `${chosen.join(' ')}…`;
+
+    return {
+      title: `Vulcan, be our new ${title}`,
+      description: description,
+    };
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     post('/apply', this.form).then((response) => console.log(response));
@@ -74,8 +103,14 @@ class Position extends React.Component {
       linkLabel = "Link to GitHub or Portfolio";
     }
 
+    const meta = this.buildMeta(title, firstSection);
+
     return (
       <div className="position">
+        <MetaTags>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </MetaTags>
         <Intro className="magenta">
           <h1 className={`title ${abbrValid ? 'full' : ''}`}>
             {title}

@@ -1,6 +1,7 @@
 @import './include/colors.scss';
 @import './include/mixins.scss';
 
+$max-width: 1618px;
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
 
@@ -32,6 +33,10 @@ $mobile-top: 999px;
       letter-spacing: 0.02;
       margin-bottom: 20px;
 
+      @media (min-width: $max-width) {
+        margin-left: -35px;
+      }
+
       @media (min-width: $desktop-bottom) {
         padding-left: 110px;
       }
@@ -45,6 +50,11 @@ $mobile-top: 999px;
 
   .details {
     width: 100%;
+
+    @media (min-width: $max-width) {
+      width: $max-width;
+      margin: 0 auto;
+    }
 
     @media (min-width: $desktop-bottom) {
       padding: 68px 110px 132px 110px;
@@ -67,6 +77,11 @@ $mobile-top: 999px;
       font-size: 20px;
       line-height: 30px;
       letter-spacing: 0.11;
+    }
+
+    @media (min-width: $max-width) {
+      width: 100%;
+      margin-left: -35px;
     }
 
     @media (max-width: $mobile-top) {
@@ -110,6 +125,10 @@ $mobile-top: 999px;
       bottom : -15px;
       left: 0;
     }
+
+    @media (min-width: $max-width) {
+      margin-left: -35px;
+    }
   }
 
   p {
@@ -121,6 +140,10 @@ $mobile-top: 999px;
 
     & + p {
       margin-top: 40px;
+    }
+
+    @media (min-width: $max-width) {
+      margin-left: -35px;
     }
 
     @media (min-width: 1250px) {
@@ -136,6 +159,10 @@ $mobile-top: 999px;
   ol, ul {
     margin-left: 30px;
     list-style: none;
+
+    @media (min-width: $max-width) {
+      margin-left: 0px;
+    }
 
     li {
       color: transparentize($mexican-tar, 0.3);
@@ -171,6 +198,10 @@ $mobile-top: 999px;
 
   form {
     margin-top: 60px;
+
+    @media (min-width: $max-width) {
+      margin-left: -35px;
+    }
     
     @media (min-width: $desktop-bottom) {
       width: 80%;

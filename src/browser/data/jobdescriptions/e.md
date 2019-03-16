@@ -21,25 +21,26 @@ help bring your wacky moving weirdness to life. This is going to be fun!
 
 ### About You
 
-* You think in timelines, count in frames.
-* IK doesn't just mean "ick" to you.
-* Your favorite part of a project is breathing life into it.
-* Your capable of articulating an idea through acting and description.
-* To prototype, you work in storyboards and loose prototypical animation.
-* You have an interest in tightly-coupling animation with
-  user-interface design.
-* You find building usable animation rigs a joy.
-* You are very well organized.
+* You **think in timelines, count in frames.**
+* **IK doesn't just mean "ick" to you.**
+* Your favorite part of a project is **breathing life into it.**
+* Your capable of **articulating an idea** through acting and description.
+* To prototype, you work in **storyboards and loose**
+  **prototypical animation.**
+* You have an interest in **coupling animation with**
+  **user-interface design.**
+* **You find building usable animation rigs a joy.**
+* You are **very well organized.**
 
 ### Requirements
 
-* Expert level usage of Adobe After Effects and Adobe Illustrator.
-* Intermediate to expert knowledge of a 3D animation package.
-* Expert rig-marker, capable of crafting usable harnesses.
-* Capable of illustrating concepts traditionally.
-* Well-versed at composing storyboards.
-* Experience working on video games a plus.
-* Experience designing user-interfaces a plus.
+* Expert level usage of **Adobe After Effects and Adobe Illustrator.**
+* Intermediate to **expert knowledge of a 3D animation package.**
+* **Expert rig-marker,** capable of crafting usable harnesses.
+* **Capable of illustrating concepts traditionally.**
+* Well-versed at **composing storyboards.**
+* Experience **working on video games a plus.**
+* Experience **designing user-interfaces a plus.**
 
 
 ### Why Vulcan

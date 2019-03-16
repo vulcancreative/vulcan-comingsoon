@@ -1,11 +1,19 @@
 @import '../include/colors.scss';
 
+$max-width: 1618px;
 $desktop-bottom: 1000px;
 $mobile-top: 999px;
+$show-less: 749px;
 
 .intro {
   width: 100vw;
   padding: 51px 0 105px 0;
+
+  @media (min-width: $max-width) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   @media (min-width: $desktop-bottom) {
     min-height: 576px;
@@ -15,6 +23,10 @@ $mobile-top: 999px;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media (max-width: $show-less) {
+    padding-bottom: 51px;
   }
 
   &.yellow {
@@ -59,7 +71,19 @@ $mobile-top: 999px;
     }
   }
 
+  &.yellow .content p + p {
+    @media (max-width: $show-less) {
+      display: none;
+    }
+  }
+
   .content {
+    max-width: $max-width;
+
+    @media (min-width: $max-width) {
+      width: $max-width;
+    }
+
     @media (min-width: $desktop-bottom) {
       margin-top: 91px;
     }
@@ -73,6 +97,10 @@ $mobile-top: 999px;
     h1 {
       max-width: 90%;
       margin-bottom: 5px;
+
+      @media (min-width: $max-width) {
+        margin-left: -35px;
+      }
 
       @media (min-width: $desktop-bottom) {
         font: {
@@ -98,6 +126,11 @@ $mobile-top: 999px;
 
     p {
       opacity: 0.6;
+
+      @media (min-width: $max-width) {
+        max-width: 90%;
+        margin-left: -35px;
+      }
 
       @media (min-width: $desktop-bottom) {
         width: 67vw;

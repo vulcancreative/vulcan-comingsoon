@@ -1,16 +1,32 @@
 import React from 'react';
 import Intro from './common/intro';
+import MetaTags from 'react-meta-tags';
 import { fixWidows } from './util/dom';
 import { Link } from 'react-router-dom';
 import { positions } from './data/positions';
 import './styles/careers.scss';
 
 class Careers extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      meta: {
+        title: "Vulcan, be a part of the team",
+        description: "Vulcan is ever hiring and always growing; if " +
+        "you’re a Creative, UI/UX Designer, Full-Stack Engineer, or " +
+        "just Other, it’s a pleasure to meet you!",
+      },
+    };
+  }
+
   componentDidMount() {
     fixWidows();
   }
 
   render() {
+    const { meta } = this.state;
+
     const openings = positions.map((p) => {
       const loc = p.location;
       const locString = typeof loc === 'string' || loc instanceof String;
@@ -40,6 +56,10 @@ class Careers extends React.Component {
 
     return (
       <div className="careers">
+        <MetaTags>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </MetaTags>
         <Intro className="magenta">
           <h1>
             Passion

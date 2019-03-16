@@ -1,10 +1,24 @@
 import React from 'react';
 import { post } from './api';
 import Intro from './common/intro';
+import MetaTags from 'react-meta-tags';
 import { fixWidows } from './util/dom';
 import './styles/contact.scss';
 
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      meta: {
+        title: "Vulcan, just reach out and say hi",
+        description: "Vulcan is a full-service creative agency, with " +
+        "offices in Portsmouth, New Hampshire; Heidelberg, Germany; " +
+        "and Bangkok, Thailand.",
+      },
+    };
+  }
+
   componentDidMount() {
     fixWidows();
   }
@@ -15,8 +29,14 @@ class Contact extends React.Component {
   }
 
   render() {
+    const { meta } = this.state;
+
     return (
       <div className="contact">
+        <MetaTags>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </MetaTags>
         <Intro className="cyan">
           <h1>
             Reach Out
