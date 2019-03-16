@@ -236,7 +236,7 @@ const browserConfig = {
     }),
     new CompressionPlugin({
       minRatio: 1,
-      exclude: /^(favicon)/,
+      exclude: /^(favicon|apple|android|safari|mstile).*/,
       test: /\.(jpe?g|png|gif|js|css|svg)$/,
       deleteOriginalAssets: true,
     }),
@@ -276,7 +276,7 @@ const serverConfig = {
     }),
     new CompressionPlugin({
       minRatio: 1,
-      exclude: /^(favicon)/,
+      exclude: /^(favicon|apple|android|safari|mstile).*/,
       test: /\.(jpe?g|png|gif|css|svg)$/,
       deleteOriginalAssets: true,
     }),
