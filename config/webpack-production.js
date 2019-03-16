@@ -229,7 +229,7 @@ const browserConfig = {
       filename: 'static/styles/main.css',
     }),
     new Critters({
-      // preload: 'swap',
+      preload: 'js-lazy',
       logLevel: 'silent',
       pruneSource: false,
       preloadFonts: true,
