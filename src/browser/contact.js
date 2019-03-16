@@ -30,6 +30,7 @@ class Contact extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     const { meta } = this.state;
 
     const canonical = `https://vulcanca.com${history.location.pathname}`;
