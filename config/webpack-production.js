@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 
 const isPrivate = process.env.PRIVATE || false;
@@ -234,12 +233,6 @@ const browserConfig = {
       logLevel: 'silent',
       pruneSource: false,
     }),
-    new CompressionPlugin({
-      minRatio: 1,
-      exclude: /^(favicon|apple|android|safari|mstile).*/,
-      test: /\.(jpe?g|png|gif|js|css|svg)$/,
-      deleteOriginalAssets: true,
-    }),
   ].filter(Boolean),
 };
 
@@ -273,12 +266,6 @@ const serverConfig = {
     }),
     new MiniCssExtractPlugin({
       filename: 'static/styles/main.css',
-    }),
-    new CompressionPlugin({
-      minRatio: 1,
-      exclude: /^(favicon|apple|android|safari|mstile).*/,
-      test: /\.(jpe?g|png|gif|css|svg)$/,
-      deleteOriginalAssets: true,
     }),
   ].filter(Boolean),
 };
