@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const OptimizeCSS = require("optimize-css-assets-webpack-plugin");
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 
 const isPrivate = process.env.PRIVATE || false;
@@ -130,6 +131,7 @@ const browserOptimization = {
       },
       sourceMap: true,
     }),
+    new OptimizeCSS({}),
   ],
 };
 
@@ -233,6 +235,7 @@ const browserConfig = {
       preload: 'js-lazy',
       logLevel: 'silent',
       pruneSource: false,
+      minify: true,
     }),
     new CompressionPlugin({
       minRatio: 1,
