@@ -182,12 +182,6 @@ const aliases = {
   'react-dom': 'preact-compat',
 };
 
-const commonPlugins = [
-  new MiniCssExtractPlugin({
-    filename: 'static/styles/main.css',
-  }),
-];
-
 const browserConfig = {
   mode: mode,
   stats: 'errors-only',
@@ -224,16 +218,21 @@ const browserConfig = {
         flatten: true,
       },
     ]),
-    ...commonPlugins,
     new HtmlWebpackPlugin({
+      template: `!!prerender-loader?string!${
+        path.resolve('src', 'public', 'index.html')
+      }`,
       filename: path.resolve('build', 'templates', 'index.html'),
-      template: path.resolve('src', 'public', 'index.html'),
+      minify: true,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'static/styles/main.css',
     }),
     new Critters({
       preload: 'swap',
       logLevel: 'silent',
       pruneSource: false,
-      preloadFonts: false,
+      preloadFonts: true,
     }),
   ].filter(Boolean),
 };
@@ -266,7 +265,9 @@ const serverConfig = {
       'process.env.PRIVATE': JSON.stringify(isPrivate),
       'process.env.BROWSER': 'false',
     }),
-    ...commonPlugins,
+    new MiniCssExtractPlugin({
+      filename: 'static/styles/main.css',
+    }),
   ].filter(Boolean),
 };
 
