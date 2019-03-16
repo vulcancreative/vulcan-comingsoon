@@ -236,7 +236,8 @@ const browserConfig = {
     }),
     new CompressionPlugin({
       minRatio: 1,
-      test: /\.(jpe?g|png|gif|ico|xml|js|css|svg|webmanifest)$/,
+      exclude: /^(favicon)/,
+      test: /\.(jpe?g|png|gif|js|css|svg)$/,
       deleteOriginalAssets: true,
     }),
   ].filter(Boolean),
@@ -275,7 +276,8 @@ const serverConfig = {
     }),
     new CompressionPlugin({
       minRatio: 1,
-      test: /\.(jpe?g|png|gif|ico|xml|css|svg|webmanifest)$/,
+      exclude: /^(favicon)/,
+      test: /\.(jpe?g|png|gif|css|svg)$/,
       deleteOriginalAssets: true,
     }),
   ].filter(Boolean),
