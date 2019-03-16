@@ -141,12 +141,15 @@ class Home extends React.Component {
           </p>
         </Intro>
         <div className="work">
-          <div className="project homeworks">
+          <div
+            className="project homeworks"
+            itemScope itemType="http://schema.org/CreativeWork"
+          >
             <div className="info">
-              <h2>
+              <h2 itemProp="headline">
                 Homework for HomeWorks
               </h2>
-              <p>
+              <p itemProp="about">
                 HomeWorks Energy, in partnership with the MassSave
                 program, asked us to revitalize their brand, perform
                 market research, redesign their marketing site, and
@@ -156,18 +159,26 @@ class Home extends React.Component {
                 href={homeworksLink}
                 rel="noopener noreferrer"
                 target="_blank"
+                itemProp="url"
               >
                 See Their Site
               </a>
             </div>
-            <div className="image" style={homeworksImageStyle} />
+            <div
+              className="image"
+              style={homeworksImageStyle}
+              itemProp="exampleOfWork"
+            />
           </div>
-          <div className="project mywarrant">
+          <div
+            className="project mywarrant"
+            itemScope itemType="http://schema.org/CreativeWork"
+          >
             <div className="info">
-              <h2>
+              <h2 itemProp="headline">
                 Peace of mind&nbsp;in&nbsp;the MyWarrant brand
               </h2>
-              <p>
+              <p itemProp="about">
                 T-Pain and his producer MeMpHiTz asked us to brand and
                 conceptualize their new travel and traffic safety
                 application – MyWarrant. Now we’re building it out!
@@ -176,18 +187,26 @@ class Home extends React.Component {
                 href={mywarrantLink}
                 rel="noopener noreferrer"
                 target="_blank"
+                itemProp="url"
               >
                 Learn More
               </a>
             </div>
-            <div className="image" style={mywarrantImageStyle} />
+            <div
+              className="image"
+              style={mywarrantImageStyle}
+              itemProp="exampleOfWork"
+            />
           </div>
-          <div className="project tomferry">
+          <div
+            className="project tomferry"
+            itemScope itemType="http://schema.org/CreativeWork"
+          >
             <div className="info">
-              <h2>
+              <h2 itemProp="headline">
                 Life, by design – TomFerry, by Vulcan
               </h2>
-              <p>
+              <p itemProp="about">
                 TomFerry asked us to build and design a revolutionary,
                 highly-scalable edutainment platform to host, sell, and
                 stream their on-demand and live audiences to clients by
@@ -201,14 +220,21 @@ class Home extends React.Component {
                 Launch The App
               </a>
             </div>
-            <div className="image" style={tomferryImageStyle} />
+            <div
+              className="image"
+              style={tomferryImageStyle}
+              itemProp="exampleOfWork"
+            />
           </div>
-          <div className="project wardssheds">
+          <div
+            className="project wardssheds"
+            itemScope itemType="http://schema.org/CreativeWork"
+          >
             <div className="info">
-              <h2>
+              <h2 itemProp="headline">
                 The re-Wards of a modern app
               </h2>
-              <p>
+              <p itemProp="about">
                 The largest shed custom company in New England asked
                 us to help modernize their sales strategy. We did more.
                 From a rebrand to a robust design tool – we succeeded!
@@ -221,7 +247,11 @@ class Home extends React.Component {
                 How It Works
               </a>
             </div>
-            <div className="image" style={wardsshedsImageStyle} />
+            <div
+              className="image"
+              style={wardsshedsImageStyle}
+              itemProp="exampleOfWork"
+            />
           </div>
         </div>
       </div>
