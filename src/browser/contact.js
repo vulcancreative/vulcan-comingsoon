@@ -3,6 +3,7 @@ import { post } from './api';
 import Intro from './common/intro';
 import MetaTags from 'react-meta-tags';
 import { fixWidows } from './util/dom';
+import { withRouter } from 'react-router-dom';
 import './styles/contact.scss';
 
 class Contact extends React.Component {
@@ -31,11 +32,27 @@ class Contact extends React.Component {
   render() {
     const { meta } = this.state;
 
+    const canonical = `https://vulcanca.com${history.location.pathname}`;
+    const ogImg = `https://vulcanca.com/vulcan-og-cyan.jpg`;
+
     return (
       <div className="contact">
         <MetaTags>
           <title>{meta.title}</title>
           <meta name="description" content={meta.description} />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:image" content={ogImg} />
+
+          <meta property="twitter:card" content="summary" />
+          <meta property="twitter:url" content={canonical} />
+          <meta property="twitter:title" content={meta.title} />
+          <meta property="twitter:image" content={ogImg} />
+          <meta property="twitter:description"
+            content={meta.description} />
         </MetaTags>
         <Intro className="cyan">
           <h1>
@@ -109,4 +126,4 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+export default withRouter(Contact);

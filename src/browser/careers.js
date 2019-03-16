@@ -2,11 +2,8 @@ import React from 'react';
 import Intro from './common/intro';
 import MetaTags from 'react-meta-tags';
 import { fixWidows } from './util/dom';
-import { Link } from 'react-router-dom';
 import { positions } from './data/positions';
-
-import ogMagenta from './images/vulcan-og-magenta.jpg';
-
+import { withRouter, Link } from 'react-router-dom';
 import './styles/careers.scss';
 
 class Careers extends React.Component {
@@ -32,6 +29,7 @@ class Careers extends React.Component {
     const { meta } = this.state;
 
     const canonical = `https://vulcanca.com${history.location.pathname}`;
+    const ogImg = `https://vulcanca.com/vulcan-og-magenta.jpg`;
 
     const openings = positions.map((p) => {
       const loc = p.location;
@@ -70,12 +68,12 @@ class Careers extends React.Component {
           <meta property="og:url" content={canonical} />
           <meta property="og:title" content={meta.title} />
           <meta property="og:description" content={meta.description} />
-          <meta property="og:image" content={ogMagenta} />
+          <meta property="og:image" content={ogImg} />
 
           <meta property="twitter:card" content="summary" />
           <meta property="twitter:url" content={canonical} />
           <meta property="twitter:title" content={meta.title} />
-          <meta property="twitter:image" content={ogMagenta} />
+          <meta property="twitter:image" content={ogImg} />
           <meta property="twitter:description"
             content={meta.description} />
         </MetaTags>
@@ -113,4 +111,4 @@ class Careers extends React.Component {
   }
 }
 
-export default Careers;
+export default withRouter(Careers);

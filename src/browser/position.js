@@ -6,7 +6,7 @@ import Markdown from 'markdown-to-jsx';
 import { fixWidows } from './util/dom';
 import { isString } from './util/collection';
 import { positions } from './data/positions';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import './styles/position.scss';
 
 class Position extends React.Component {
@@ -76,8 +76,12 @@ class Position extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     const { abbr, type, title, markdown } = this.state;
     if (!title || !markdown) return null;
+
+    const canonical = `https://vulcanca.com${history.location.pathname}`;
+    const ogImg = `https://vulcanca.com/vulcan-og-magenta.jpg`;
 
     const markdownOptions = {
       forceBlock: true,
@@ -110,6 +114,19 @@ class Position extends React.Component {
         <MetaTags>
           <title>{meta.title}</title>
           <meta name="description" content={meta.description} />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:image" content={ogImg} />
+
+          <meta property="twitter:card" content="summary" />
+          <meta property="twitter:url" content={canonical} />
+          <meta property="twitter:title" content={meta.title} />
+          <meta property="twitter:image" content={ogImg} />
+          <meta property="twitter:description"
+            content={meta.description} />
         </MetaTags>
         <Intro className="magenta">
           <h1 className={`title ${abbrValid ? 'full' : ''}`}>

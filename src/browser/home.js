@@ -13,8 +13,6 @@ import mywarrantBrandMobile from './images/mywarrant-brand-mobile.jpg';
 import tomferryUIMobile from './images/tomferry-ui-mobile.jpg';
 import wardsshedsUIMobile from './images/wardssheds-ui-mobile.jpg';
 
-import ogYellow from './images/vulcan-og-yellow.jpg';
-
 import './styles/home.scss';
 
 class Home extends React.Component {
@@ -61,6 +59,7 @@ class Home extends React.Component {
 
     const showSmall = viewportWidth < 1000;
     const canonical = `https://vulcanca.com${history.location.pathname}`;
+    const ogImg = `https://vulcanca.com/vulcan-og-yellow.jpg`;
 
     const homeworksLink = "https://homeworksenergy.com/";
     const mywarrantLink = "https://dribbble.com/shots/" +
@@ -113,12 +112,12 @@ class Home extends React.Component {
           <meta property="og:url" content={canonical} />
           <meta property="og:title" content={meta.title} />
           <meta property="og:description" content={meta.description} />
-          <meta property="og:image" content={ogYellow} />
+          <meta property="og:image" content={ogImg} />
 
           <meta property="twitter:card" content="summary" />
           <meta property="twitter:url" content={canonical} />
           <meta property="twitter:title" content={meta.title} />
-          <meta property="twitter:image" content={ogYellow} />
+          <meta property="twitter:image" content={ogImg} />
           <meta property="twitter:description"
             content={meta.description} />
         </MetaTags>
