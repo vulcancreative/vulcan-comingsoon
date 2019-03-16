@@ -41,7 +41,7 @@ router.get('*', (ctx) => {
     `
   );
 
-  if (markup.includes("<h1>Ah, dammit…</h1>")) ctx.status = 404;
+  // if (markup.includes("<h1>Ah, dammit…</h1>")) ctx.status = 404;
   ctx.body = result;
 });
 
