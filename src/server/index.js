@@ -8,6 +8,8 @@ import ip from 'my-local-ip';
 import serve from 'koa-static';
 import Router from 'koa-router';
 import App from '../browser/app';
+import compress from 'koa-compress';
+import htmlMinifier from 'koa-html-minifier';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
@@ -19,6 +21,8 @@ const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());
 app.use(serve('build'));
+app.use(compress());
+app.use(htmlMinifier({ collapseWhitespace: true }));
 
 router.get('*', (ctx) => {
   const markup = renderToString(
