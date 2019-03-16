@@ -7,6 +7,7 @@ const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 
@@ -233,6 +234,7 @@ const browserConfig = {
       logLevel: 'silent',
       pruneSource: false,
     }),
+    new CompressionPlugin(),
   ].filter(Boolean),
 };
 

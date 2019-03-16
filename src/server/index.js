@@ -18,7 +18,7 @@ const filepath = path.resolve('build', 'templates', 'index.html');
 const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());
-app.use(serve('build'));
+// app.use(serve('build'));
 
 router.get('*', (ctx) => {
   const markup = renderToString(

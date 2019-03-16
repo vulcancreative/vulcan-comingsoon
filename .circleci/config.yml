@@ -36,3 +36,4 @@ jobs:
             ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && npm install"
             ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && $PROD_FLAGS npm run build"
             ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && pm2 start vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP "sudo service nginx reload"
