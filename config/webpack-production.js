@@ -232,7 +232,6 @@ const browserConfig = {
       preload: 'js-lazy',
       logLevel: 'silent',
       pruneSource: false,
-      preloadFonts: true,
     }),
   ].filter(Boolean),
 };
