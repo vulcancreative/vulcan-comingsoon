@@ -41,6 +41,7 @@ router.get('*', (ctx) => {
     `
   );
 
+  if (result.includes("Ah, dammit…")) ctx.status = 404;
   ctx.body = result;
 });
 
