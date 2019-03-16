@@ -28,7 +28,7 @@ router.get('*', (ctx) => {
   );
 
   const result = template.replace(
-    `<div id="root"></div>`,
+    /<div id="root">.*<\/div>/gm,
     `
     <script>
       window.__DATA_LOADED__ = true;
