@@ -3,6 +3,7 @@ import Home from './home';
 import Careers from './careers';
 import Contact from './contact';
 import Position from './position';
+import FourOhFour from './fourohfour';
 import { fixWidows } from './util/dom';
 import { withRouter, Route } from 'react-router-dom';
 import './styles/app.scss';
@@ -38,6 +39,7 @@ class App extends React.Component {
         <Route path="/careers" component={Careers} exact />
         <Route path="/careers/:slug" component={Position} exact />
         <Route path="/contact" component={Contact} exact />
+        <Route path="*" component={FourOhFour} status={404}/>
       </div>
     );
   }

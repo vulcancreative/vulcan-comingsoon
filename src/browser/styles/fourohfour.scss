@@ -1,0 +1,125 @@
+@import './include/colors.scss';
+
+$max-width: 1618px;
+$desktop-bottom: 1000px;
+$mobile-top: 999px;
+
+.four-oh-four {
+  @media (min-width: $desktop-bottom) {
+    padding: 51px 31px 105px 31px;
+  }
+
+  @media (max-width: $mobile-top) {
+    padding: 51px 0 105px 0;
+  }
+
+  .header {
+    margin: 0 auto;
+  }
+
+  .failure {
+    max-width: $max-width;
+
+    @media (min-width: $max-width) {
+      width: $max-width;
+    }
+
+    @media (min-width: $desktop-bottom) {
+      margin-top: 91px;
+    }
+
+    @media (max-width: $mobile-top) {
+      width: 85%;
+      max-width: 600px;
+      margin: 67px auto 0 auto;
+    }
+
+    h1 {
+      max-width: 90%;
+      margin-bottom: 5px;
+
+      @media (min-width: $max-width) {
+        margin-left: -35px;
+      }
+
+      @media (min-width: $desktop-bottom) {
+        font: {
+          family: 'Martel', sans-serif;
+          size: 89px;
+        }
+        line-height: 89px;
+        letter-spacing: 0.03;
+        padding-left: 107px;
+      }
+
+      @media (max-width: $mobile-top) {
+        width: 100%;
+
+        font: {
+          family: 'Martel', sans-serif;
+          size: 55px;
+        }
+        line-height: 55px;
+        letter-spacing: 0.02;
+        text-align: left;
+        margin-left: -2px;
+      }
+    }
+
+    p {
+      width: 100%;
+      opacity: 0.75;
+      text-align: left;
+      margin-top: 30px;
+
+      & + p {
+        margin-top: 15px;
+      }
+
+      @media (min-width: $max-width) {
+        max-width: 90%;
+        margin-left: -35px;
+      }
+
+      @media (min-width: $desktop-bottom) {
+        width: 67vw;
+        padding-left: 110px;
+      }
+
+      @media (max-width: $mobile-top) {
+        width: 100%;
+      }
+    }
+
+    a {
+      color: $mexican-tar;
+      font-weight: 600;
+      margin-top: 30px;
+      text-decoration: none;
+      letter-spacing: 0;
+      display: inline-block;
+      position: relative;
+      user-select: none;
+      opacity: 0.75;
+
+      @media (min-width: $max-width) {
+        margin-left: -35px;
+      }
+
+      @media (min-width: $desktop-bottom) {
+        padding-left: 110px;
+      }
+
+      &:after {
+        content: '›';
+        color: $mexican-tar;
+        font-size: 26px;
+        display: inline-block;
+        position: absolute;
+        opacity: 0.65;
+        top: -7px;
+        right: -20px;
+      }
+    }
+  }
+}
