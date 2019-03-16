@@ -1,6 +1,7 @@
 import React from 'react';
 import Intro from './common/intro';
 import MetaTags from 'react-meta-tags';
+import { withRouter } from 'react-router-dom';
 import { fixWidows, viewportSize } from './util/dom';
 
 import homeworksUIDesktop from './images/homeworks-ui-desktop.jpg';
@@ -11,6 +12,8 @@ import wardsshedsUIDesktop from './images/wardssheds-ui-desktop.jpg';
 import mywarrantBrandMobile from './images/mywarrant-brand-mobile.jpg';
 import tomferryUIMobile from './images/tomferry-ui-mobile.jpg';
 import wardsshedsUIMobile from './images/wardssheds-ui-mobile.jpg';
+
+import ogYellow from './images/vulcan-og-yellow.jpg';
 
 import './styles/home.scss';
 
@@ -53,8 +56,11 @@ class Home extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     const { meta, viewportWidth } = this.state;
+
     const showSmall = viewportWidth < 1000;
+    const canonical = `https://vulcanca.com${history.location.pathname}`;
 
     const homeworksLink = "https://homeworksenergy.com/";
     const mywarrantLink = "https://dribbble.com/shots/" +
@@ -102,6 +108,19 @@ class Home extends React.Component {
         <MetaTags>
           <title>{meta.title}</title>
           <meta name="description" content={meta.description} />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:image" content={ogYellow} />
+
+          <meta property="twitter:card" content="summary" />
+          <meta property="twitter:url" content={canonical} />
+          <meta property="twitter:title" content={meta.title} />
+          <meta property="twitter:image" content={ogYellow} />
+          <meta property="twitter:description"
+            content={meta.description} />
         </MetaTags>
         <Intro className="yellow">
           <h1>
@@ -211,4 +230,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

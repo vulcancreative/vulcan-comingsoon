@@ -4,6 +4,9 @@ import MetaTags from 'react-meta-tags';
 import { fixWidows } from './util/dom';
 import { Link } from 'react-router-dom';
 import { positions } from './data/positions';
+
+import ogMagenta from './images/vulcan-og-magenta.jpg';
+
 import './styles/careers.scss';
 
 class Careers extends React.Component {
@@ -25,7 +28,10 @@ class Careers extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     const { meta } = this.state;
+
+    const canonical = `https://vulcanca.com${history.location.pathname}`;
 
     const openings = positions.map((p) => {
       const loc = p.location;
@@ -59,6 +65,19 @@ class Careers extends React.Component {
         <MetaTags>
           <title>{meta.title}</title>
           <meta name="description" content={meta.description} />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:image" content={ogMagenta} />
+
+          <meta property="twitter:card" content="summary" />
+          <meta property="twitter:url" content={canonical} />
+          <meta property="twitter:title" content={meta.title} />
+          <meta property="twitter:image" content={ogMagenta} />
+          <meta property="twitter:description"
+            content={meta.description} />
         </MetaTags>
         <Intro className="magenta">
           <h1>
