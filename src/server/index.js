@@ -5,7 +5,7 @@ import cors from 'kcors';
 import React from 'react';
 import colors from 'colors';
 import ip from 'my-local-ip';
-// import serve from 'koa-static';
+import serve from 'koa-static';
 import Router from 'koa-router';
 import App from '../browser/app';
 import { StaticRouter } from 'react-router-dom';
@@ -18,7 +18,7 @@ const filepath = path.resolve('build', 'templates', 'index.html');
 const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());
-// app.use(serve('build'));
+app.use(serve('build'));
 
 router.get('*', (ctx) => {
   const markup = renderToString(

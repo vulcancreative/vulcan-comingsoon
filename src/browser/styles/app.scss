@@ -28,7 +28,7 @@ div, p, span, a {
     size: 15px;
     family: 'Source Sans Pro', sans-serif;
     weight: 400;
-    display: swap;
+    display: swap !important;
   }
 
   -webkit-font-feature-settings: 'liga' 0;
