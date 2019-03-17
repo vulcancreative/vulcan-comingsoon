@@ -5,7 +5,7 @@ import Contact from './contact';
 import Position from './position';
 import FourOhFour from './fourohfour';
 import { fixWidows } from './util/dom';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import './styles/app.scss';
 
 const ScrollToTop = () => {
@@ -35,11 +35,14 @@ class App extends React.Component {
     return (
       <div id="app">
         <Route component={ScrollToTop} />
-        <Route path="/" component={Home} exact />
-        <Route path="/careers" component={Careers} exact />
-        <Route path="/careers/:slug" component={Position} exact />
-        <Route path="/contact" component={Contact} exact />
-        <Route path="*" component={FourOhFour} status={404}/>
+
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/careers" component={Careers} exact />
+          <Route path="/careers/:slug" component={Position} exact />
+          <Route path="/contact" component={Contact} exact />
+          <Route component={FourOhFour} status={404}/>
+        </Switch>
       </div>
     );
   }
