@@ -39,15 +39,17 @@ div, p, span, a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: greyscale;
   box-sizing: border-box;
-
-  -webkit-appearance: none;
-  border-radius: 0;
 }
 
 h3, h4, h5, li, p, p span, input[type="submit"] {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.11;
+}
+
+input, button {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .grecaptcha-badge {
