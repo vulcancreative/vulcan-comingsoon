@@ -56,7 +56,7 @@ class FourOhFour extends React.Component {
             Cause we certainly aren&rsquo;t…
           </p>
           <p>
-            Probably but a temporary oversight, but you know better
+            Probably but a temporary oversight, but, you know, better
             safe than sorry. What do you say we go home and
             start anew?
           </p>
