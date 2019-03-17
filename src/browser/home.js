@@ -150,10 +150,10 @@ class Home extends React.Component {
                 Homework for HomeWorks
               </h2>
               <p itemProp="about">
-                HomeWorks Energy, in partnership with the MassSave
-                program, asked us to revitalize their brand, perform
-                market research, redesign their marketing site, and
-                develop their internal tools.
+                HomeWorks Energy of Boston MA, in partnership with the
+                Mass Save program, hired us to revitalize their brand,
+                perform market research, redesign their marketing site,
+                and develop their internal tools.
               </p>
               <a
                 href={homeworksLink}
@@ -181,7 +181,8 @@ class Home extends React.Component {
               <p itemProp="about">
                 T-Pain and his producer MeMpHiTz asked us to brand and
                 conceptualize their new travel and traffic safety
-                application – MyWarrant. Now we’re building it out!
+                application – MyWarrant. Now we’re developing their
+                digital product!
               </p>
               <a
                 href={mywarrantLink}
@@ -207,10 +208,10 @@ class Home extends React.Component {
                 Life, by design – TomFerry, by Vulcan
               </h2>
               <p itemProp="about">
-                TomFerry asked us to build and design a revolutionary,
-                highly-scalable edutainment platform to host, sell, and
-                stream their on-demand and live audiences to clients by
-                the tens of thousands.
+                TomFerry brought us aboard for the product development of
+                a revolutionary, highly-scalable edutainment platform to
+                host, sell, and distribute their on-demand and live stream
+                content to clients from Boston to Bangkok.
               </p>
               <a
                 href={tomferryLink}
@@ -235,9 +236,10 @@ class Home extends React.Component {
                 The re-Wards of a modern app
               </h2>
               <p itemProp="about">
-                The largest shed custom company in New England asked
-                us to help modernize their sales strategy. We did more.
-                From a rebrand to a robust design tool – we succeeded!
+                The largest custom shed company in New Hampshire asked
+                us to help modernize their marketing strategy. To do
+                this, we brought their brand design, product development,
+                and distribution channels to new heights!
               </p>
               <a
                 href={wardsshedsLink}

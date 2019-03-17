@@ -5,6 +5,7 @@ const colors = require('colors');
 const process = require('process');
 const webpack = require('webpack');
 const childProcess = require('child_process');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const MiniCssExtractPlugin = require('extract-css-chunks-webpack-plugin');
 
@@ -94,6 +95,10 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(mode),
       'process.env.PRIVATE': JSON.stringify(isPrivate),
       'process.env.BROWSER': 'true',
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve('src', 'public', 'index.html'),
+      minify: true,
     }),
     new MiniCssExtractPlugin({
       filename: 'static/styles/main.css',
