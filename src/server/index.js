@@ -13,14 +13,18 @@ import htmlMinifier from 'koa-html-minifier';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
+const isDev = process.env.NODE_ENV.includes('dev');
 const port = process.env.PORT || 4000;
+
 const app = new Koa();
 const router = new Router();
 const filepath = path.resolve('build', 'templates', 'index.html');
 const template = fs.readFileSync(filepath).toString();
 
 app.use(cors());
-app.use(serve('build'));
+
+if (isDev) app.use(serve('build'));
+
 app.use(compress());
 app.use(htmlMinifier({ collapseWhitespace: true }));
 
