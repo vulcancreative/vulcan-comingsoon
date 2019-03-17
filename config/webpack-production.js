@@ -198,7 +198,7 @@ const browserConfig = {
   },
   output: {
     path: path.resolve(__dirname, '..', 'build'),
-    filename: 'static/scripts/bundle.js',
+    filename: 'static/scripts/bundle.[hash:8].js',
     publicPath: '/',
   },
   module: {
@@ -217,7 +217,7 @@ const browserConfig = {
       {
         from: path.resolve(__dirname, '..', 'src', 'public', '**/*'),
         to: path.resolve(__dirname, '..', 'build'),
-        ignore: [ 'index.html' ],
+        ignore: ['index.html'],
         flatten: true,
       },
     ]),
@@ -229,7 +229,7 @@ const browserConfig = {
       minify: true,
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/styles/main.css',
+      filename: 'static/styles/main.[hash:8].css',
     }),
     new Critters({
       preload: 'js-lazy',
@@ -275,7 +275,7 @@ const serverConfig = {
       'process.env.BROWSER': 'false',
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/styles/main.css',
+      filename: 'static/styles/main.[hash:8].css',
     }),
     new CompressionPlugin({
       minRatio: 1,
