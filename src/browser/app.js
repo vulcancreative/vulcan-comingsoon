@@ -16,8 +16,11 @@ const ScrollToTop = () => {
 class App extends React.Component {
   componentDidMount() {
     if (process.env.BROWSER) {
+      const { history } = this.props;
+
       this.fixWidows = () => fixWidows();
       window.addEventListener('resize', this.fixWidows);
+      history.listen(() => this.fixWidows);
     }
   }
 
