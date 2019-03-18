@@ -20,7 +20,7 @@ class App extends React.Component {
 
       this.fixWidows = () => fixWidows();
       window.addEventListener('resize', this.fixWidows);
-      history.listen(() => this.fixWidows);
+      history.listen(() => this.fixWidows());
     }
   }
 
