@@ -25,18 +25,25 @@ class Position extends React.Component {
 
   componentDidMount() {
     fixWidows();
+    this.restForm();
     this.findPosition();
-    if (this.form) this.form.classList.remove('finished');
   }
 
   componentWillUnmount() {
-    if (this.form) this.form.classList.remove('finished');
+    this.restForm();
   }
 
   componentDidUpdate(prevProps) {
     fixWidows();
     if (prevProps.markdown !== this.props.markdown) {
       this.findPosition();
+    }
+  }
+
+  resetForm() {
+    if (this.form) {
+      this.form.reset();
+      this.form.classList.remove('finished');
     }
   }
 

@@ -22,11 +22,18 @@ class Contact extends React.Component {
 
   componentDidMount() {
     fixWidows();
-    if (this.form) this.form.classList.remove('finished');
+    this.restForm();
   }
 
   componentWillUnmount() {
-    if (this.form) this.form.classList.remove('finished');
+    this.restForm();
+  }
+
+  resetForm() {
+    if (this.form) {
+      this.form.reset();
+      this.form.classList.remove('finished');
+    }
   }
 
   handleSubmit(e) {
