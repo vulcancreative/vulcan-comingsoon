@@ -160,6 +160,13 @@ class Position extends React.Component {
             onSubmit={(e) => this.handleSubmit(e)}
           >
             <input
+              type="hidden"
+              name="job"
+              defaultValue={title}
+              required
+            />
+
+            <input
               type="text"
               name="name"
               placeholder="Full Name"
