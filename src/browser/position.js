@@ -25,12 +25,12 @@ class Position extends React.Component {
 
   componentDidMount() {
     fixWidows();
-    this.restForm();
+    this.resetForm();
     this.findPosition();
   }
 
   componentWillUnmount() {
-    this.restForm();
+    this.resetForm();
   }
 
   componentDidUpdate(prevProps) {
