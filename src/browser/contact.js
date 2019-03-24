@@ -89,6 +89,7 @@ class Contact extends React.Component {
               type="text"
               name="name"
               placeholder="Full Name"
+              data-hj-whitelist
               required
             />
 
@@ -96,6 +97,7 @@ class Contact extends React.Component {
               type="text"
               name="company"
               placeholder="Company Name"
+              data-hj-whitelist
               required
             />
 
@@ -103,6 +105,7 @@ class Contact extends React.Component {
               type="email"
               name="email"
               placeholder="Email Address"
+              data-hj-whitelist
               required
             />
 
@@ -110,12 +113,14 @@ class Contact extends React.Component {
               type="tel"
               name="phone"
               placeholder="Phone Number"
+              data-hj-whitelist
               required
             />
 
             <textarea
               name="message"
               placeholder="So, what’s crackin?"
+              data-hj-whitelist
               required
             />
 

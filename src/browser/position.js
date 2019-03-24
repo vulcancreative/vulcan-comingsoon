@@ -163,6 +163,7 @@ class Position extends React.Component {
               type="text"
               name="name"
               placeholder="Full Name"
+              data-hj-whitelist
               required
             />
 
@@ -170,6 +171,7 @@ class Position extends React.Component {
               type="url"
               name="link"
               placeholder={linkLabel}
+              data-hj-whitelist
               required
             />
 
@@ -177,6 +179,7 @@ class Position extends React.Component {
               type="email"
               name="email"
               placeholder="Email Address"
+              data-hj-whitelist
               required
             />
 
@@ -184,12 +187,14 @@ class Position extends React.Component {
               type="tel"
               name="phone"
               placeholder="Phone Number"
+              data-hj-whitelist
               required
             />
 
             <textarea
               name="message"
               placeholder="Tell us about you. Why are you a good fit?"
+              data-hj-whitelist
               required
             />
 
