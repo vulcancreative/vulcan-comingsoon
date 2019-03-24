@@ -72,7 +72,10 @@ class Position extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    post('/apply', this.form).then((response) => console.log(response));
+    post('/apply', this.form).then((response) => {
+      console.log(response);
+      if (response.ok) this.form.classList.add('finished');
+    });
   }
 
   render() {
@@ -159,6 +162,30 @@ class Position extends React.Component {
             ref={(el) => { this.form = el; }}
             onSubmit={(e) => this.handleSubmit(e)}
           >
+            <div className="cover">
+              <div className="handle" />
+              <div className="info">
+                <h1>Hell Yeah!</h1>
+                <p>
+                  We&rsquo;re so excited that you&rsquo;re excited! The
+                  folks on the other end of this automated response
+                  can&rsquo;t wait to make your acquaintance!
+                </p>
+                <p>
+                  Please keep in mind, whenever we put one of these
+                  opportunities up, we have a tremendous amount of
+                  interest (like&hellip; a lot). All fine and dandy, but
+                  this sometimes means we can&rsquo;t reply to each inquiry
+                  on a case-by-case basis. Sad, yes, but a fact of life.
+                </p>
+                <p>
+                  With that in mind, if you our new best bud, someone
+                  will be in-touch within 1 to 2 business days with
+                  some additional info.
+                </p>
+              </div>
+            </div>
+
             <input
               type="hidden"
               name="job"

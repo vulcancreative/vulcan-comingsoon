@@ -26,7 +26,11 @@ class Contact extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    post('/contact', this.form).then((response) => console.log(response));
+
+    post('/contact', this.form).then((response) => {
+      console.log(response);
+      if (response.ok) this.form.classList.add('finished');
+    });
   }
 
   render() {
@@ -85,6 +89,21 @@ class Contact extends React.Component {
             ref={(el) => { this.form = el; }}
             onSubmit={(e) => this.handleSubmit(e)}
           >
+            <div className="cover">
+              <div className="handle" />
+              <div className="info">
+                <h1>Thanks!</h1>
+                <p>
+                  Our regular email-answering hours are, well, pretty
+                  much always. What can we say? We like meeting people.
+                </p>
+                <p>
+                  With that in mind, someone will get back to you within
+                  1 business day &ndash; but, usually sooner!
+                </p>
+              </div>
+            </div>
+
             <input
               type="text"
               name="name"
