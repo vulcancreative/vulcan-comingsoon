@@ -13,7 +13,11 @@ const post = (route, form) => {
 
     xhr.onload = () => { resolve(JSON.parse(xhr.response)); };
 
-    const base = "https://api.vulcanca.com";
+    const isDev = process.env.NODE_ENV.toLowerCase().includes('dev');
+
+    const base = isDev ?
+      'http://localhost:4040' : 'https://api.vulcanca.com';
+
     xhr.open('POST', `${base}${route}?${params}`);
     xhr.send();
   });

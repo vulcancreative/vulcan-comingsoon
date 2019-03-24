@@ -118,7 +118,7 @@ class Contact extends React.Component {
             />
 
             <textarea
-              name="message"
+              name="msg"
               placeholder="So, what’s crackin?"
               data-hj-whitelist
               required

@@ -192,7 +192,7 @@ class Position extends React.Component {
             />
 
             <textarea
-              name="message"
+              name="msg"
               placeholder="Tell us about you. Why are you a good fit?"
               data-hj-whitelist
               required
