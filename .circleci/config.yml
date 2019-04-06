@@ -25,15 +25,44 @@ jobs:
       - checkout
 
       - run:
-          name: Deploy to production server
+          name: "Deploy to production server 00"
           command: |
-            echo "$PROD_KNOWN" >> ~/.ssh/known_hosts
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && pm2 stop vulcan-frontend"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && touch package-lock.json"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && rm -rf package-lock.json"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && rm -rf build"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && git pull"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && npm install"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && $PROD_FLAGS npm run build"
-            ssh $PROD_USER@$PROD_IP "cd $PROD_DIR && pm2 start vulcan-frontend"
-            ssh $PROD_USER@$PROD_IP "sudo service nginx reload"
+            echo "$PROD_KNOWN_00" >> ~/.ssh/known_hosts
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && pm2 stop vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && touch package-lock.json"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && rm -rf package-lock.json"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && rm -rf build"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && git pull"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && npm install"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && $PROD_FLAGS npm run build"
+            ssh $PROD_USER@$PROD_IP_00 "cd $PROD_DIR && pm2 start vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_00 "sudo service nginx reload"
+
+      - run:
+          name: "Deploy to production server 01"
+          command: |
+            echo "$PROD_KNOWN_01" >> ~/.ssh/known_hosts
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && pm2 stop vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && touch package-lock.json"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && rm -rf package-lock.json"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && rm -rf build"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && git pull"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && npm install"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && $PROD_FLAGS npm run build"
+            ssh $PROD_USER@$PROD_IP_01 "cd $PROD_DIR && pm2 start vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_01 "sudo service nginx reload"
+
+
+      - run:
+          name: "Deploy to production server 02"
+          command: |
+            echo "$PROD_KNOWN_02" >> ~/.ssh/known_hosts
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && pm2 stop vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && touch package-lock.json"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && rm -rf package-lock.json"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && rm -rf build"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && git pull"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && npm install"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && $PROD_FLAGS npm run build"
+            ssh $PROD_USER@$PROD_IP_02 "cd $PROD_DIR && pm2 start vulcan-frontend"
+            ssh $PROD_USER@$PROD_IP_02 "sudo service nginx reload"
