@@ -54,16 +54,6 @@ industries – this is the role for you!
   **Google Docs.**
 * A thorough understanding of **SEO and social media principles.**
 
-### Why Vulcan
-
-* Work from anywhere.
-* $2,000 birthday bonus.
-* $2,000 USD annual learning stipend.
-* In-office bar, available to you all day.
-* 1 day per week to focus on personal projects.
-* Optional medical and dental insurance.
-* Parental leave.
-* Catered lunch.
 
 Vulcan is an equal-opportunity employer, and we already love you.
 No recruiters, please.

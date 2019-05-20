@@ -53,16 +53,5 @@ you don't need to be an expert! That's why they're here!
   (e.g. – React, Framer, Origami et cetera).
 
 
-### Why Vulcan
-
-* Work from anywhere.
-* $2,000 birthday bonus.
-* $2,000 USD annual learning stipend.
-* In-office bar, available to you all day.
-* 1 day per week to focus on personal projects.
-* Optional medical and dental insurance.
-* Parental leave.
-* Catered lunch.
-
 Vulcan is an equal-opportunity employer, and we already love you.
 No recruiters, please.
