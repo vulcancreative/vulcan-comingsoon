@@ -219,7 +219,7 @@ class Home extends React.Component {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Launch The App
+                View The App
               </a>
             </div>
             <div
