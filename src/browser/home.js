@@ -64,7 +64,8 @@ class Home extends React.Component {
     const homeworksLink = "https://homeworksenergy.com/";
     const mywarrantLink = "https://dribbble.com/shots/" +
       "4851776-MyWarrant-Brandbooks";
-    const tomferryLink = "https://tfod.tomferry.com/";
+    const tomferryLink = "https://dribbble.com/shots/" +
+      "7028110-TomFerry-On-Demand-Video-Mobile";
     const wardsshedsLink = "https://dribbble.com/shots/" +
       "4185275-Wards-Sheds-Builder";
 
