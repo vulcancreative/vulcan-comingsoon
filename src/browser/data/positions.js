@@ -54,7 +54,7 @@ const positions = [
     abbr: "Admin Assistant",
     slug: "administrative-assistant-portsmouth",
     location: {
-      city: "Portsmouth",
+      city: "Londonderry",
       area: "NH",
     },
     markdown: f,
@@ -65,7 +65,7 @@ const positions = [
     abbr: "Icon Designer",
     slug: "iconographer-portsmouth",
     location: {
-      city: "Portsmouth",
+      city: "Londonderry",
       area: "NH",
     },
     markdown: g,
@@ -75,7 +75,7 @@ const positions = [
     title: "Account Manager",
     slug: "account-manager-portsmouth",
     location: {
-      city: "Portsmouth",
+      city: "Londonderry",
       area: "NH",
     },
     markdown: h,

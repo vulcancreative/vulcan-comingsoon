@@ -1,4 +1,4 @@
-## Portsmouth, NH
+## Londonderry, NH
 
 Are you a people person? Do you love being a problem solver? You're
 unique! You enjoy helping an office run, and being the glue holding it all

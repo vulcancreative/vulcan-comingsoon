@@ -14,7 +14,7 @@ class Contact extends React.Component {
       meta: {
         title: "Vulcan, just reach out and say hi",
         description: "Vulcan is a full-service creative agency, with " +
-        "offices in Portsmouth, New Hampshire; Heidelberg, Germany; " +
+        "offices in Londonderry, New Hampshire; Heidelberg, Germany; " +
         "and Bangkok, Thailand.",
       },
     };

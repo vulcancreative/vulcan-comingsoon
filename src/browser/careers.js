@@ -89,7 +89,7 @@ class Careers extends React.Component {
           <p>
             We’re a similarly-minded, rag-tag group of creatives and
             engineers, working hard and day-drinking the week away. With
-            folks on the ground in Portsmouth NH,  Heidelberg DE, and
+            folks on the ground in Londonderry NH,  Heidelberg DE, and
             Bangkok TH, there’s plenty of fun to go around. In office, or
             out-and-about doing your thing, we’re just happy to have
             you along for the ride!
