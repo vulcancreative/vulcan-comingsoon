@@ -15,6 +15,8 @@ const port = envPort ? envPort : 4000;
 const isPrivate = process.env.PRIVATE || false;
 
 const platform = os.platform().toLowerCase();
+
+const isLinux = platform === 'linux';
 const isWindows = platform === 'win32' || platform === 'win64';
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
@@ -54,6 +56,18 @@ const jsLoad = {
   exclude: /(node_modules)/,
 };
 
+const fontLoad = {
+  test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: 'static/fonts/[name].[hash:8].[ext]',
+      },
+    },
+  ],
+};
+
 const sassLoad = {
   test: /\.s?(a|c)ss$/,
   use: [
@@ -87,7 +101,7 @@ module.exports = {
   module: {
     rules: [
       linter,
-      { oneOf: [imgLoad, jsLoad, sassLoad, fileLoad] },
+      { oneOf: [imgLoad, jsLoad, fontLoad, sassLoad, fileLoad] },
     ],
   },
   plugins: [
@@ -111,6 +125,7 @@ module.exports = {
     host: '0.0.0.0',
     port: port,
     quiet: true,
+    clientLogLevel: 'silent',
     compress: true,
     contentBase: path.resolve(__dirname, '..', 'src', 'public'),
     historyApiFallback: true,
@@ -127,7 +142,7 @@ module.exports = {
         )
       );
 
-      if (!isWindows) {
+      if (!isLinux && !isWindows) {
         childProcess.execSync('ps cax | grep "Google Chrome"');
         childProcess.execSync(
           `osascript chrome.applescript "${encodeURI(

@@ -57,11 +57,6 @@ const sassLoad = {
     MiniCssExtractPlugin.loader,
     {
       loader: require.resolve('css-loader'),
-      options: {
-        minimize: {
-          safe: true,
-        },
-      },
     },
     {
       loader: require.resolve('postcss-loader'),
@@ -98,12 +93,12 @@ const browserOptimization = {
         'sourceMap': true,
         'output': { comments: false },
         'mangle': true,
+        'warnings': false,
         'compress': {
           'properties': true,
           'keep_fargs': false,
           'pure_getters': true,
           'collapse_vars': true,
-          'warnings': false,
           'sequences': true,
           'dead_code': true,
           'drop_debugger': true,
@@ -144,12 +139,12 @@ const serverOptimization = {
         'sourceMap': true,
         'output': { comments: false },
         'mangle': true,
+        'warnings': false,
         'compress': {
           'properties': true,
           'keep_fargs': false,
           'pure_getters': true,
           'collapse_vars': true,
-          'warnings': false,
           'sequences': true,
           'dead_code': true,
           'drop_debugger': true,
@@ -181,8 +176,8 @@ const serverOptimization = {
 };
 
 const aliases = {
-  'react': 'preact-compat',
-  'react-dom': 'preact-compat',
+  // 'react': 'preact-compat',
+  // 'react-dom': 'preact-compat',
 };
 
 const browserConfig = {
@@ -192,7 +187,6 @@ const browserConfig = {
   target: 'web',
   name: 'browser',
   optimization: browserOptimization,
-  // optimization: { minimizer: [] },
   resolve: {
     alias: aliases,
   },
@@ -222,9 +216,7 @@ const browserConfig = {
       },
     ]),
     new HtmlWebpackPlugin({
-      template: `!!prerender-loader?string!${
-        path.resolve('src', 'public', 'index.html')
-      }`,
+      template: path.resolve('src', 'public', 'index.html'),
       filename: path.resolve('build', 'templates', 'index.html'),
       minify: true,
     }),
