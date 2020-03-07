@@ -14,7 +14,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
 const isDev = process.env.NODE_ENV.includes('dev');
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 const app = new Koa();
 const router = new Router();
